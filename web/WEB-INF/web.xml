@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>listShoes</welcome-file>
+    </welcome-file-list>
+    <jsp-config>
+        <jsp-property-group>
+            <display-name>template</display-name>
+            <url-pattern>/WEB-INF/showEditMe.jsp</url-pattern>
+            <url-pattern>/showLogin.jsp</url-pattern>
+            <url-pattern>/WEB-INF/showIncome.jsp</url-pattern>
+            <url-pattern>/WEB-INF/showEditShoes.jsp</url-pattern>
+            <url-pattern>/WEB-INF/addModel.jsp</url-pattern>
+            <url-pattern>/showRegistration.jsp</url-pattern>
+            <url-pattern>/WEB-INF/showUploadCover.jsp</url-pattern>
+            <url-pattern>/WEB-INF/listUsers.jsp</url-pattern>
+            <url-pattern>/WEB-INF/adminPanel.jsp</url-pattern>
+            <url-pattern>/listShoes.jsp</url-pattern>
+            <url-pattern>/WEB-INF/showEditShoesList.jsp</url-pattern>
+            <url-pattern>/WEB-INF/showIncomePerMonth.jsp</url-pattern>
+            <url-pattern>/WEB-INF/showEditPassword.jsp</url-pattern>
+            <url-pattern>/WEB-INF/showTakeOnModel.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+            <include-prelude>/WEB-INF/jspf/header.jspf</include-prelude>
+            <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
+        </jsp-property-group>
+    </jsp-config>
+</web-app>
