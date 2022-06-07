@@ -94,7 +94,7 @@ public class UserServlet extends HttpServlet {
             case "/takeOnModel":
                 String modelId = request.getParameter("modelId");
                 Model selectedModel = modelFacade.find(Long.parseLong(modelId));
-                if(selectedModel.getQuantity()!=0 & authPerson.getUser().getAmountMoney()-selectedModel.getPrice()>0){
+                if(selectedModel.getQuantity()!=0 & authPerson.getUser().getAmountMoney()>=selectedModel.getPrice()){
                     selectedModel.setQuantity(selectedModel.getQuantity()-1);
                     authPerson.getUser().setAmountMoney(authPerson.getUser().getAmountMoney()-selectedModel.getPrice());
                     userFacade.edit(authPerson.getUser());
@@ -107,8 +107,12 @@ public class UserServlet extends HttpServlet {
                     historyFacade.create(history);
                     request.setAttribute("info", "Покупка произведена");
                     request.getRequestDispatcher("/showTakeOnModel").forward(request, response);
-                }
                     break;
+                }else{
+                    request.setAttribute("info", "У вас не хватает денежных средств!");
+                    request.getRequestDispatcher("/showTakeOnModel").forward(request, response);
+                    break;
+                }
             case "/showEditMe":
                 request.setAttribute("activeShowEditMe", true);
                 Person person=personFacade.find(authPerson.getId());

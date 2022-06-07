@@ -134,17 +134,17 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("authPerson",authPerson);
                 String topRoleAuthPerson=rolePersonFacade.getTopRole(authPerson);
                 session.setAttribute("topRole", topRoleAuthPerson);
-                request.setAttribute("info","Здраствуйте "+ authPerson.getUser().getName());
+                request.setAttribute("info","Здравствуйте "+ authPerson.getUser().getName());
                 request.getRequestDispatcher("/listShoes").forward(request, response);
                 break;
             case "/logout":
                 session=request.getSession(false);
-                if(session!=null){
+                if(session!= null){
                     session.invalidate();
-                    session.setAttribute("info", "Вы вышли!");
                 }
+                request.setAttribute("info", "Вы вышли!");
                 request.setAttribute("activeLogout", true);
-                request.getRequestDispatcher("/listShoes").forward(request, response);
+                request.getRequestDispatcher("/showLogin").forward(request, response);
                 break;
             case "/listShoes":
                 Map<Model,Cover> mapModels = new HashMap<>();
